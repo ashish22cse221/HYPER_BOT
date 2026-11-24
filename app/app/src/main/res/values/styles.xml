@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HyperBrutal" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F3F2EE</item>
+        <item name="android:colorBackground">#F3F2EE</item>
+        <item name="android:colorAccent">#1E40FF</item>
+        <item name="android:colorPrimary">#0B0B0C</item>
+        <item name="android:textColorHighlight">#552340FF</item>
+        <item name="android:statusBarColor">#F3F2EE</item>
+        <item name="android:navigationBarColor">#0B0B0C</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

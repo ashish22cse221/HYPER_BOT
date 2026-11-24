@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build your HyperBot — wiring, installer, setup</title>
+<meta name="description" content="Wire an ESP32-C3 to a 0.96 inch OLED, flash HyperBot from your browser in one click, then pair it with the Android app.">
+<meta property="og:title" content="Build your HyperBot">
+<meta property="og:image" content="/assets/img/og.png">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/img/winged_grey.webp" as="image">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<noscript><style>.reveal,.frame-in>*,.line-mask>span,.intro,.pop-in{opacity:1!important;transform:none!important;clip-path:none!important}.frame-in::after{display:none}</style></noscript>
+</head>
+<body>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="rail l" aria-hidden="true"><span>Build guide</span><i></i><span>Chapter</span><b data-chapter>01</b><span>/ 07</span></div>
+<div class="rail r" aria-hidden="true"><span>Wire it</span><i></i><span>Flash it</span><i></i><b>Pair it</b></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="brand-tile"><img src="/assets/img/logo.svg" alt=""></span>
+      <span><span class="brand-name">HyperBot</span><br><span class="brand-tag">build guide // v2.1.1</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu">MENU ☰</button>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="#wiring">Wiring</a>
+      <a class="active" href="#install">Install</a>
+      <a href="#pair">Pair</a>
+      <a href="#help">Help</a>
+      <a class="cta" href="/downloads/HyperBot-2.1.0.apk" download>↓ App</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="build-hero grid-bg">
+  <span class="coord" style="left:24px;top:20px">[ BUILD / V2.1.1 ]</span>
+  <div class="wrap">
+    <img class="art build-winged intro d2" data-speed="-0.1" src="/assets/img/winged_grey.webp" alt="" aria-hidden="true" width="760" height="1081">
+    <div class="build-hero-grid">
+      <div>
+        <div class="kicker intro"><span data-type="BUILD GUIDE ✶ ABOUT 15 MINUTES">BUILD GUIDE ✶ ABOUT 15 MINUTES</span></div>
+        <h1 class="h1" style="margin-top:20px"><span class="line-mask"><span>Build</span></span><span class="line-mask"><span>your <span class="block-blue">bot.</span></span></span></h1>
+        <p class="lead intro d1">Four wires, one click in your browser, one code from its face. No soldering iron, no coding tools, no account.</p>
+      </div>
+      <div style="position:relative" class="intro d2 framed">
+        <span class="scanline"></span>
+        <div class="oled"><img src="/assets/faces/setup_hello.png" alt="HyperBot hello screen"></div>
+        <div class="oled-cap"><span>first boot</span><span class="live">live</span></div>
+        <span class="sticker pop-in" style="position:absolute;right:-8px;top:-22px">4 wires. 1 click.</span>
+      </div>
+    </div>
+    <nav class="progress intro d3" aria-label="Steps">
+      <a href="#parts"><b>01</b>Parts</a>
+      <a href="#wiring"><b>02</b>Wiring</a>
+      <a href="#install"><b>03</b>Install</a>
+      <a href="#boot"><b>04</b>First boot</a>
+      <a href="#pair"><b>05</b>App + pair</a>
+      <a href="#use"><b>06</b>Play</a>
+      <a href="#help"><b>07</b>Help</a>
+    </nav>
+  </div>
+</section>
+<div class="meander" aria-hidden="true"></div>
+
+<div class="wrap layout">
+  <aside class="side" aria-label="Chapters">
+    <a href="#parts"><b>01</b>Parts</a>
+    <a href="#wiring"><b>02</b>Wiring</a>
+    <a href="#install"><b>03</b>Install</a>
+    <a href="#boot"><b>04</b>First boot</a>
+    <a href="#pair"><b>05</b>App + pair</a>
+    <a href="#use"><b>06</b>Play</a>
+    <a href="#help"><b>07</b>Help</a>
+  </aside>
+
+  <main>
+    <!-- ======================================================== 01 PARTS -->
+    <section class="chapter" id="parts">
+      <div class="sec-num reveal fade"><b>01</b> Parts</div>
+      <h2 class="h2 reveal l">What you <span class="block-lime">need.</span></h2>
+      <p class="lead reveal fade">Cheap, common parts. If you have a breadboard and jumper wires lying around, you're already halfway there.</p>
+      <div class="parts" data-stagger="0.06">
+        <div class="part"><span class="ico">C3</span><div><strong>Seeed XIAO ESP32-C3</strong><span>The brain: Bluetooth + Wi-Fi, USB-C. Other ESP32-C3 boards work if you match the pins.</span></div></div>
+        <div class="part"><span class="ico">OL</span><div><strong>0.96″ OLED · SSD1306</strong><span>128×64, I2C, 4 pins (GND VCC SCL SDA). The face.</span></div></div>
+        <div class="part"><span class="ico">USB</span><div><strong>USB-C data cable</strong><span>Must carry data, not just charge. #1 cause of "board not found".</span></div></div>
+        <div class="part"><span class="ico">4×</span><div><strong>Jumper wires</strong><span>Female-to-female, or solder short wires if you're building it into a case.</span></div></div>
+        <div class="part"><span class="ico">PC</span><div><strong>A laptop</strong><span>Windows, Mac or Linux with Chrome or Edge, for the one-click installer.</span></div></div>
+        <div class="part"><span class="ico">APP</span><div><strong>An Android phone</strong><span>Android 8 or newer with Bluetooth LE, for the HyperBot app.</span></div></div>
+        <div class="part opt"><span class="ico">BZ</span><div><strong>Passive buzzer · optional</strong><span>For little beeps. Goes on D0.</span></div></div>
+        <div class="part opt"><span class="ico">BOX</span><div><strong>A case · optional</strong><span>3D-print one, use a tiny box, or leave it naked. Brutalism.</span></div></div>
+      </div>
+    </section>
+
+    <!-- ======================================================== 02 WIRING -->
+    <section class="chapter" id="wiring">
+      <div class="sec-num reveal fade"><b>02</b> Wiring</div>
+      <h2 class="h2 reveal l">Four <span class="block-blue">wires.</span></h2>
+      <p class="lead">Power and ground, plus the two I2C data lines. Do this with the board unplugged.</p>
+
+      <div class="wiring frame-in framed">
+        <svg viewBox="0 0 900 470" role="img" aria-label="Wiring diagram: XIAO 3V3 to OLED VCC, GND to GND, D9 to SCL, D8 to SDA">
+          <defs>
+            <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#0b0b0c" opacity=".14"/></pattern>
+          </defs>
+          <rect width="900" height="470" fill="url(#dots)"/>
+          <!-- XIAO board -->
+          <text x="150" y="40" font-family="Space Mono" font-weight="700" font-size="13">SEEED XIAO ESP32-C3 · TOP VIEW</text>
+          <rect x="158" y="66" width="220" height="356" fill="#0b0b0c"/>
+          <rect x="150" y="58" width="220" height="356" fill="#26262b" stroke="#0b0b0c" stroke-width="4"/>
+          <rect x="225" y="44" width="70" height="30" fill="#b9b9b4" stroke="#0b0b0c" stroke-width="4"/>
+          <text x="260" y="64" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="11">USB-C</text>
+          <rect x="215" y="180" width="90" height="90" fill="#3a3a40" stroke="#0b0b0c" stroke-width="3"/>
+          <text x="260" y="222" text-anchor="middle" fill="#c8ff2e" font-family="Anton" font-size="22">ESP32</text>
+          <text x="260" y="246" text-anchor="middle" fill="#c8ff2e" font-family="Anton" font-size="22">-C3</text>
+          <g font-family="Space Mono" font-weight="700" font-size="13" fill="#f3f2ee">
+            <!-- left pins -->
+            <g><rect x="150" y="108" width="20" height="20" fill="#ffd23f" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="123">D0</text></g>
+            <g opacity=".55"><rect x="150" y="152" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="167">D1</text></g>
+            <g opacity=".55"><rect x="150" y="196" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="211">D2</text></g>
+            <g opacity=".55"><rect x="150" y="240" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="255">D3</text></g>
+            <g opacity=".55"><rect x="150" y="284" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="299">D4</text></g>
+            <g opacity=".55"><rect x="150" y="328" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="343">D5</text></g>
+            <g opacity=".55"><rect x="150" y="372" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="178" y="387">D6</text></g>
+            <!-- right pins -->
+            <g opacity=".55"><rect x="350" y="108" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="123" text-anchor="end">5V</text></g>
+            <g><rect x="350" y="152" width="20" height="20" fill="#f3f2ee" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="167" text-anchor="end">GND</text></g>
+            <g><rect x="350" y="196" width="20" height="20" fill="#ff3b30" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="211" text-anchor="end">3V3</text></g>
+            <g opacity=".55"><rect x="350" y="240" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="255" text-anchor="end">D10</text></g>
+            <g><rect x="350" y="284" width="20" height="20" fill="#1e40ff" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="299" text-anchor="end">D9</text></g>
+            <g><rect x="350" y="328" width="20" height="20" fill="#c8ff2e" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="343" text-anchor="end">D8</text></g>
+            <g opacity=".55"><rect x="350" y="372" width="20" height="20" fill="#9a9a95" stroke="#0b0b0c" stroke-width="3"/><text x="342" y="387" text-anchor="end">D7</text></g>
+          </g>
+
+          <!-- wires: ink casing, then colour -->
+          <g fill="none" stroke-linejoin="miter" stroke-linecap="square">
+            <g stroke="#0b0b0c" stroke-width="13">
+              <path d="M370 162 H450 V190 H620"/><path d="M370 206 H480 V226 H620"/>
+              <path d="M370 294 H510 V262 H620"/><path d="M370 338 H540 V298 H620"/>
+            </g>
+            <path d="M370 162 H450 V190 H620" stroke="#3a3a40" stroke-width="7"/>
+            <path d="M370 206 H480 V226 H620" stroke="#ff3b30" stroke-width="7"/>
+            <path d="M370 294 H510 V262 H620" stroke="#1e40ff" stroke-width="7"/>
+            <path d="M370 338 H540 V298 H620" stroke="#c8ff2e" stroke-width="7"/>
+            <!-- optional buzzer -->
+            <path d="M150 118 H70 V360" stroke="#0b0b0c" stroke-width="5" stroke-dasharray="10 8"/>
+          </g>
+          <circle cx="70" cy="392" r="30" fill="#0b0b0c"/>
+          <circle cx="70" cy="392" r="12" fill="#3a3a40"/>
+          <text x="70" y="446" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="11">BUZZER +</text>
+          <text x="70" y="460" text-anchor="middle" font-family="Space Mono" font-size="10">(optional · − to GND)</text>
+
+          <!-- OLED module -->
+          <text x="620" y="110" font-family="Space Mono" font-weight="700" font-size="13">0.96″ OLED · SSD1306 · I2C</text>
+          <rect x="628" y="138" width="250" height="210" fill="#0b0b0c"/>
+          <rect x="620" y="130" width="250" height="210" fill="#1e40ff" stroke="#0b0b0c" stroke-width="4"/>
+          <rect x="676" y="160" width="176" height="150" fill="#050505" stroke="#0b0b0c" stroke-width="3"/>
+          <image href="/assets/faces/emotion_uwu.gif" x="680" y="191" width="168" height="84" style="image-rendering:pixelated"/>
+          <g font-family="Space Mono" font-weight="700" font-size="12" fill="#ffffff">
+            <rect x="614" y="181" width="18" height="18" fill="#f3f2ee" stroke="#0b0b0c" stroke-width="3"/><text x="640" y="195">GND</text>
+            <rect x="614" y="217" width="18" height="18" fill="#ff3b30" stroke="#0b0b0c" stroke-width="3"/><text x="640" y="231">VCC</text>
+            <rect x="614" y="253" width="18" height="18" fill="#1e40ff" stroke="#0b0b0c" stroke-width="3"/><text x="640" y="267">SCL</text>
+            <rect x="614" y="289" width="18" height="18" fill="#c8ff2e" stroke="#0b0b0c" stroke-width="3"/><text x="640" y="303">SDA</text>
+          </g>
+          <text x="745" y="372" text-anchor="middle" font-family="Space Mono" font-size="11">pins drawn on the side for clarity</text>
+          <!-- crosshair -->
+          <g stroke="#0b0b0c" stroke-width="2"><line x1="840" y1="30" x2="840" y2="70"/><line x1="820" y1="50" x2="860" y2="50"/></g>
+        </svg>
+      </div>
+
+      <table class="pin-table reveal rise">
+        <thead><tr><th>Wire</th><th>OLED pin</th><th>XIAO pin</th><th>GPIO</th></tr></thead>
+        <tbody>
+          <tr><td><span class="swatch" style="background:#3a3a40"></span>Ground</td><td>GND</td><td>GND</td><td>—</td></tr>
+          <tr><td><span class="swatch" style="background:#ff3b30"></span>Power</td><td>VCC</td><td>3V3</td><td>—</td></tr>
+          <tr><td><span class="swatch" style="background:#1e40ff"></span>Clock</td><td>SCL</td><td>D9</td><td>GPIO 9</td></tr>
+          <tr><td><span class="swatch" style="background:#c8ff2e"></span>Data</td><td>SDA</td><td>D8</td><td>GPIO 8</td></tr>
+          <tr><td><span class="swatch" style="background:#ffd23f"></span>Buzzer (optional)</td><td>+ leg</td><td>D0</td><td>GPIO 2</td></tr>
+        </tbody>
+      </table>
+      <div class="note warn"><b class="tag">CHECK</b><div>Read the labels printed on <b>your</b> OLED. Some modules put VCC first and GND second — swapping them can kill the screen.</div></div>
+      <div class="note"><b class="tag">TIP</b><div>Use <b>3V3</b>, not 5V. The OLED is happy on 3.3 V and the data lines stay at safe levels.</div></div>
+      <div class="note"><b class="tag">1.3″?</b><div>The bigger 1.3″ OLEDs use a different chip (SH1106) and show a shifted, garbled picture with this firmware. A 1.3″ build is coming — for now, use the 0.96″.</div></div>
+    </section>
+
+    <!-- ======================================================== 03 INSTALL -->
+    <section class="chapter" id="install">
+      <div class="sec-num reveal fade"><b>03</b> Install</div>
+      <h2 class="h2 reveal l">One click.<br><span class="block-lime">No coding.</span></h2>
+      <p class="lead">Your browser flashes the firmware straight onto the board over USB. Takes about a minute.</p>
+
+      <div class="browser-check">
+        <div class="note ok" style="background:var(--lime)"><b class="tag">READY</b><div>Your browser can talk to USB devices. Plug in the bot and pick an installer below.</div></div>
+        <div class="note bad"><b class="tag">NOPE</b><div>This browser can't flash boards. Open this page in <b>Chrome</b> or <b>Edge</b> on a laptop or desktop (not a phone, not Firefox or Safari).</div></div>
+      </div>
+
+      <div class="installers" data-stagger="0.12">
+        <div class="installer fresh">
+          <div class="h3">Fresh install <small>NEW BOT</small></div>
+          <ul>
+            <li>Erases the whole board first</li>
+            <li>Installs firmware v2.1.1 + 5 starter faces</li>
+            <li>First-run setup will start on the bot</li>
+          </ul>
+          <esp-web-install-button manifest="/firmware/manifest-fresh.json">
+            <button slot="activate" class="btn ink">⚡ Fresh install</button>
+            <span slot="unsupported" class="unsupported">Use Chrome or Edge on a computer to install.</span>
+            <span slot="not-allowed" class="unsupported">Open this page over https:// to install.</span>
+          </esp-web-install-button>
+        </div>
+        <div class="installer">
+          <div class="h3">Update firmware <small>KEEPS YOUR STUFF</small></div>
+          <ul>
+            <li>Only replaces the firmware</li>
+            <li>Keeps your GIFs, settings and paired phones</li>
+            <li>When asked, <b>leave "Erase device" unticked</b></li>
+          </ul>
+          <esp-web-install-button manifest="/firmware/manifest-update.json">
+            <button slot="activate" class="btn blue">↻ Update firmware</button>
+            <span slot="unsupported" class="unsupported">Use Chrome or Edge on a computer to install.</span>
+            <span slot="not-allowed" class="unsupported">Open this page over https:// to install.</span>
+          </esp-web-install-button>
+        </div>
+      </div>
+
+      <ol class="howto" data-stagger="0.08">
+        <li><div><strong>Plug the bot into your laptop</strong>With the USB-C data cable. The OLED can stay wired up.</div></li>
+        <li><div><strong>Click an installer</strong>Chrome asks which device to use. Pick <code>USB JTAG/serial debug unit</code> (sometimes shown as a COM port) and hit Connect.</div></li>
+        <li><div><strong>Click Install and wait</strong>About a minute. Don't unplug it until it says installation complete.</div></li>
+        <li><div><strong>Watch the face</strong>The board restarts on its own and says hi. On to the next step.</div></li>
+      </ol>
+      <div class="note"><b class="tag">NOT LISTED?</b><div>Unplug the board, <b>hold the tiny BOOT button</b>, plug it back in, then release. Click the installer again. Still nothing? Try another cable — most "missing board" problems are charge-only cables.</div></div>
+      <div class="note"><b class="tag">LOGS</b><div>After installing, the installer window has <b>Logs &amp; console</b>. The bot prints what it's doing there, like <code>[OLED] OK at 0x3C</code> or wiring tips if the screen isn't found.</div></div>
+    </section>
+
+    <!-- ======================================================== 04 FIRST BOOT -->
+    <section class="chapter" id="boot">
+      <div class="sec-num reveal fade"><b>04</b> First boot</div>
+      <h2 class="h2 reveal l">It says <span class="block-blue">hi.</span></h2>
+      <p class="lead">Until a phone pairs, the bot loops through a little welcome. It never shows this again after setup — power cycles don't bring it back.</p>
+      <div class="screens" data-stagger="0.1">
+        <div class="screen-card"><div class="oled"><img src="/assets/faces/setup_hello.png" alt="Hello screen"></div><span class="t">0–3 S</span><h5>Hello</h5><p>Shows its name, like HyperBot-1A2B, and firmware version.</p></div>
+        <div class="screen-card"><div class="oled"><img src="/assets/faces/setup_qr.png" alt="QR code screen"></div><span class="t">3–15 S</span><h5>Get my app</h5><p>Scan the QR with your phone to land on this site's app download.</p></div>
+        <div class="screen-card"><div class="oled"><img src="/assets/faces/emotion_uwu.gif" alt="Face animation"></div><span class="t">15–45 S</span><h5>Just vibing</h5><p>Plays its faces so it never looks stuck, then loops back.</p></div>
+        <div class="screen-card"><div class="oled"><img src="/assets/faces/setup_pair.png" alt="Pair code screen"></div><span class="t">WHEN THE APP ASKS</span><h5>Pair code</h5><p>A 4-digit code for 2 minutes. 3 tries, then it makes a new one.</p></div>
+      </div>
+    </section>
+
+    <!-- ======================================================== 05 PAIR -->
+    <section class="chapter" id="pair">
+      <div class="sec-num reveal fade"><b>05</b> App + pair</div>
+      <h2 class="h2 reveal l">Type the <span class="block-lime">code.</span></h2>
+      <div class="pair-grid">
+        <div>
+          <ol class="howto" style="margin-top:0" data-stagger="0.08">
+            <li><div><strong>Get the app</strong>Download the APK on your Android phone and open it. Android asks to allow "install unknown apps" — say yes for your browser.</div></li>
+            <li><div><strong>Tap Connect</strong>Allow Bluetooth (and Location on Android 11 and older). Keep the bot close.</div></li>
+            <li><div><strong>Type the 4 digits</strong>Read them off the bot's screen. The app sends them as soon as you type the fourth digit.</div></li>
+            <li><div><strong>ALL SET!</strong>The bot shows ALL SET!, the app remembers it and connects by itself next time.</div></li>
+          </ol>
+          <div class="btn-row" style="margin-top:26px">
+            <a class="btn lime" href="/downloads/HyperBot-2.1.0.apk" download>↓ HyperBot app · APK</a>
+          </div>
+          <p class="mono" style="font-size:12px;margin-top:14px">UP TO 4 PHONES CAN BE PAIRED. A 5TH REPLACES THE OLDEST.</p>
+        </div>
+        <div class="pair-box reveal r framed" aria-hidden="true">
+          <div class="tag">01 · PAIR YOUR BOT</div>
+          <div class="h3">Type the<br>code</div>
+          <div class="mono" style="font-size:11px;font-weight:700">LOOK AT YOUR BOT'S SCREEN</div>
+          <div class="code">4827</div>
+          <div class="mono" style="font-size:10px;color:var(--mute)">THE BOT REMEMBERS THIS PHONE. NEXT TIME IT CONNECTS BY ITSELF.</div>
+          <div class="btnish" style="margin-top:14px">CANCEL</div>
+          <div class="oled" style="margin-top:18px;box-shadow:none;padding:8px"><img src="/assets/faces/setup_allset.png" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== 06 USE -->
+    <section class="chapter" id="use">
+      <div class="sec-num reveal fade"><b>06</b> Play</div>
+      <h2 class="h2 reveal l">Now go <span class="block-blue">wild.</span></h2>
+      <div class="parts" data-stagger="0.08">
+        <div class="part"><span class="ico">01</span><div><strong>Pick a mood</strong><span>Playlist tab → Chill, Hyper, Sleepy or Love. Set how long each face stays (5–15 s).</span></div></div>
+        <div class="part"><span class="ico">02</span><div><strong>Draw a face</strong><span>Draw tab → up to 60 frames, then send it straight to the bot.</span></div></div>
+        <div class="part"><span class="ico">03</span><div><strong>Convert a GIF</strong><span>Convert tab → pick any GIF from your phone, tweak the dither, send.</span></div></div>
+        <div class="part"><span class="ico">04</span><div><strong>Poke it</strong><span>Bot tab → your name and a message, emoji welcome.</span></div></div>
+      </div>
+    </section>
+
+    <!-- ======================================================== 07 HELP -->
+    <section class="chapter" id="help">
+      <img class="art help-colo" src="/assets/img/ruin_colosseum.webp" alt="" aria-hidden="true" width="420" height="719">
+      <div class="sec-num reveal fade"><b>07</b> Help</div>
+      <h2 class="h2 reveal l">Something <span class="block-ink">off?</span></h2>
+      <p class="lead reveal fade">The usual suspects, in the order they usually happen.</p>
+      <div data-stagger="0.06">
+      <details class="faq"><summary>The installer can't find my board</summary><div>Use a data USB-C cable (try another one). Hold <b>BOOT</b> while plugging in, then click the installer again. Close Arduino IDE / PlatformIO / any serial monitor — only one program can use the port. No driver is needed for the XIAO ESP32-C3.</div></details>
+      <details class="faq"><summary>The screen stays black</summary><div>Open <b>Logs &amp; console</b> in the installer. If it says <code>[OLED] NOT FOUND</code>, check VCC → 3V3, GND → GND and that SDA/SCL aren't swapped (SDA → D8, SCL → D9). The app also warns "screen not found" when it connects.</div></details>
+      <details class="faq"><summary>The picture is shifted or garbled</summary><div>You probably have a 1.3″ OLED (SH1106 chip). This firmware drives the 0.96″ SSD1306. A 1.3″ build is on the way.</div></details>
+      <details class="faq"><summary>The app says "No HyperBot found"</summary><div>Turn on Bluetooth, give the app the Bluetooth permission (and Location on Android 11 and older), and keep the bot within a couple of metres. If another phone is connected to it right now, disconnect that one first.</div></details>
+      <details class="faq"><summary>The app says "Board firmware is older than the app"</summary><div>Plug the bot into a laptop and use <a href="#install">Update firmware</a>. Your GIFs and settings stay.</div></details>
+      <details class="faq"><summary>I lost my phone / it won't accept my phone</summary><div>Reset the pairing without any phone: <b>unplug and replug the bot 5 times in a row</b>, each time within 6 seconds of powering on. The bot shows RESET DONE and setup runs again. Your GIFs stay. From a paired phone you can also use <b>Bot tab → This bot → Reset bot</b>.</div></details>
+      <details class="faq"><summary>Can I use it without the app?</summary><div>Yes — it plays its faces on its own. On Wi-Fi it also has a small web dashboard at <code>hyperbot.local</code>; the Wi-Fi setup hotspot is called "HyperBot".</div></details>
+
+      </div>
+      <div class="note reveal rise" style="margin-top:30px"><b class="tag">CREDIT</b><div>HyperBot is a remix of <a href="https://github.com/SeanChangX/QBIT">QBIT</a> by SeanChangX, licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>: free for personal, non-commercial use; share changes under the same licence.</div></div>
+    </section>
+  </main>
+</div>
+
+<div class="meander ink" aria-hidden="true" style="margin-top:40px"></div>
+<footer class="footer">
+  <div class="footer-strip"><div class="wrap"><span>Wire it</span><i></i><span>Flash it</span><i></i><span>Pair it</span><i></i><span>→</span></div></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>HyperBot</h4><p>Firmware v2.1.1 · App v2.1.0. Check the bot's version in the app under Bot → This bot.</p></div>
+      <div><h4>Go</h4><a href="/">Home</a><a href="#install">Install firmware</a><a href="/downloads/HyperBot-2.1.0.apk" download>Download the app</a><a href="/firmware/SHA256SUMS.txt">Firmware checksums</a></div>
+      <div><h4>Credits</h4><a href="https://github.com/SeanChangX/QBIT" rel="noopener">Based on QBIT by SeanChangX</a><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">CC BY-NC-SA 4.0</a><a href="https://github.com/esphome/esp-web-tools" rel="noopener">Installer: ESP Web Tools</a></div>
+    </div>
+    <div class="giant reveal wipe">BUILD<span>IT</span></div>
+    <div class="credit">© <span data-year></span> HyperBot · a remix of QBIT by SeanChangX (CC BY-NC-SA 4.0) · fonts under SIL OFL.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

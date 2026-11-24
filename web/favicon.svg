@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" >
+  <rect width="108" height="108" fill="#2340FF"/>
+  <!-- bolt antenna -->
+  <path d="M57 19 L47 33 L53 33 L49 42 L61 28 L55 28 L59 19 Z" fill="#111111" transform="translate(2,2)"/>
+  <path d="M57 19 L47 33 L53 33 L49 42 L61 28 L55 28 L59 19 Z" fill="#FFD23F" stroke="#111111" stroke-width="2" stroke-linejoin="miter"/>
+  <!-- hard shadow -->
+  <rect x="34" y="44" width="44" height="34" fill="#111111"/>
+  <!-- head -->
+  <rect x="30" y="40" width="44" height="34" fill="#F2F0EA" stroke="#111111" stroke-width="4"/>
+  <!-- OLED face -->
+  <rect x="36" y="46" width="32" height="22" fill="#111111"/>
+  <!-- pixel eyes -->
+  <rect x="41" y="51" width="6" height="8" fill="#EAF2FF"/>
+  <rect x="57" y="51" width="6" height="8" fill="#EAF2FF"/>
+  <!-- pixel smile -->
+  <rect x="47" y="62" width="2" height="2" fill="#EAF2FF"/>
+  <rect x="49" y="63" width="6" height="2" fill="#EAF2FF"/>
+  <rect x="55" y="62" width="2" height="2" fill="#EAF2FF"/>
+  <!-- ears -->
+  <rect x="25" y="52" width="5" height="10" fill="#111111"/>
+  <rect x="74" y="52" width="5" height="10" fill="#111111"/>
+</svg>

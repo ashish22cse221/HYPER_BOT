@@ -1,0 +1,41 @@
+# HyperBot site — drag this whole folder onto https://app.netlify.com/drop
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/firmware/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/firmware/*.bin"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+
+[[headers]]
+  for = "/downloads/*.apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Short links (e.g. for a QR code on the bot)
+[[redirects]]
+  from = "/app"
+  to = "/downloads/HyperBot-2.1.0.apk"
+  status = 302
+[[redirects]]
+  from = "/build"
+  to = "/build.html"
+  status = 301

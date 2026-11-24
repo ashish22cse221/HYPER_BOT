@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HyperBot mark for in-app use (transparent background). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#111111" android:pathData="M59,26 L49,40 L55,40 L51,49 L63,35 L57,35 L61,26 Z"/>
+    <path android:fillColor="#FFD23F" android:strokeColor="#111111" android:strokeWidth="2" android:strokeLineJoin="miter" android:pathData="M57,24 L47,38 L53,38 L49,47 L61,33 L55,33 L59,24 Z"/>
+    <path android:fillColor="#111111" android:pathData="M34,49h44v34h-44z"/>
+    <path android:fillColor="#111111" android:pathData="M28,43h48v38h-48z"/>
+    <path android:fillColor="#F2F0EA" android:pathData="M32,47h40v30h-40z"/>
+    <path android:fillColor="#111111" android:pathData="M36,51h32v22h-32z"/>
+    <path android:fillColor="#EAF2FF" android:pathData="M41,56h6v8h-6z"/>
+    <path android:fillColor="#EAF2FF" android:pathData="M57,56h6v8h-6z"/>
+    <path android:fillColor="#EAF2FF" android:pathData="M47,67h2v2h-2z"/>
+    <path android:fillColor="#EAF2FF" android:pathData="M49,68h6v2h-6z"/>
+    <path android:fillColor="#EAF2FF" android:pathData="M55,67h2v2h-2z"/>
+    <path android:fillColor="#111111" android:pathData="M23,57h5v10h-5z"/>
+    <path android:fillColor="#111111" android:pathData="M76,57h5v10h-5z"/>
+</vector>

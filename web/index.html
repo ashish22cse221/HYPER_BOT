@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HyperBot — tiny screen, big mood</title>
+<meta name="description" content="HyperBot is a palm-sized desk robot with a pixel face. Moods, drawings, pokes and live mirror — all from your phone over Bluetooth. No cloud, no account.">
+<meta property="og:title" content="HyperBot — tiny screen, big mood">
+<meta property="og:description" content="A desk robot with feelings. Build one in 4 wires and 1 click.">
+<meta property="og:image" content="/assets/img/og.png">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/bust.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/site.css">
+<noscript><style>.reveal,.frame-in>*,.line-mask>span,.intro,.pop-in{opacity:1!important;transform:none!important;clip-path:none!important}.frame-in::after{display:none}</style></noscript>
+</head>
+<body>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="rail l" aria-hidden="true"><span>HyperBot</span><i></i><span>Sys.online</span><i></i><b>v2.1.1</b></div>
+<div class="rail r" aria-hidden="true"><span>Tiny screen</span><i></i><span>Big mood</span><i></i><b>No cloud</b></div>
+
+<!-- ============================================================ NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="brand-tile"><img src="/assets/img/logo.svg" alt=""></span>
+      <span><span class="brand-name">HyperBot</span><br><span class="brand-tag">desk robot // tiny screen big mood</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu">MENU ☰</button>
+    <nav class="nav-links">
+      <a href="#what">What it does</a>
+      <a href="#faces">Faces</a>
+      <a href="#app">The app</a>
+      <a href="#how">How it works</a>
+      <a class="cta" href="/build.html">Build yours →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="hero grid-bg">
+  <span class="coord" style="left:24px;bottom:16px">[ 00 / HERO ]</span>
+  <span class="coord" style="right:24px;bottom:16px">SCROLL ↓</span>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker intro"><span data-type='ESP32-C3 ✶ 0.96" OLED ✶ BLUETOOTH'>ESP32-C3 ✶ 0.96" OLED ✶ BLUETOOTH</span></div>
+      <h1 class="mega" style="margin-top:22px">
+        <span class="line-mask"><span>Tiny</span></span><span class="line-mask"><span>screen.</span></span><span class="line-mask"><span><span class="block-blue">Big</span> <span class="block-lime">mood.</span></span></span>
+      </h1>
+      <p class="lead intro d1">HyperBot is a palm-sized desk robot with a pixel face. It yawns, winks, sulks and lights up when you poke it — and you run the whole show from your phone. <b>No cloud. No account. No nonsense.</b></p>
+      <div class="btn-row intro d2">
+        <a class="btn lime" href="/downloads/HyperBot-2.1.0.apk" download>↓ Get the app <small>APK · Android</small></a>
+        <a class="btn blue" href="/build.html">Build your bot →</a>
+      </div>
+      <div class="specs intro d3">
+        <span>128×64 px face</span><span>8 GIF playlist</span><span>Pixel editor</span><span>Pokes</span><span>Live mirror</span><span>Paired &amp; private</span>
+      </div>
+    </div>
+
+    <div class="hero-art intro d2" aria-hidden="true">
+      <span class="coord" style="right:0;top:-18px">FIG.01 · OLED 128×64 · SSD1306</span>
+      <span class="reg" style="left:44%;top:30%"></span>
+      <img class="hero-bust" src="/assets/img/bust.webp" alt="" width="900" height="1025">
+      <span class="shard" style="left:8%;top:6%"></span>
+      <span class="shard b" style="left:62%;top:2%;width:34px"></span>
+      <span class="shard c" style="right:4%;top:44%;width:38px"></span>
+      <span class="shard" style="left:2%;top:46%;width:28px;animation-delay:-4s"></span>
+      <span class="cross" style="right:8%;top:10%"></span>
+      <span class="cross" style="left:40%;bottom:6%"></span>
+      <svg class="star4 spin" style="right:2%;bottom:30%" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg>
+      <div class="hero-meta">
+        <span class="label-box inv">● LIVE FACE</span>
+        <span class="label-box">emotion_uwu.qgif</span>
+      </div>
+      <div class="hero-bot bob">
+        <div class="bot">
+          <svg class="bot-bolt" viewBox="0 0 40 60"><path d="M26 0 4 30h14L8 60 36 22H22L32 0Z" fill="#ffd23f" stroke="#0b0b0c" stroke-width="3" stroke-linejoin="miter"/></svg>
+          <div class="bot-head"><div class="bot-screen"><img src="/assets/faces/emotion_uwu.gif" alt="HyperBot face"></div></div>
+        </div>
+      </div>
+      <div class="hero-tag"><span class="sticker pop-in">hi bestie &lt;3</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon"><div class="ribbon-track">
+  <span>HyperBot</span><span>Tiny screen</span><span>Big mood</span><span>No cloud</span><span>Draw a face</span><span>Poke it</span>
+</div></div>
+
+<!-- ============================================================ STATS -->
+<section class="dark">
+  <div class="stats wrap" style="border-top:0" data-stagger="0.1">
+    <div class="stat"><b data-count="128" data-suffix="×64">128×64</b><span>pixels of pure<br>feelings</span></div>
+    <div class="stat"><b data-count="8">8</b><span>animations per<br>playlist, shuffled</span></div>
+    <div class="stat"><b data-count="15" data-prefix="5–" data-suffix="s">5–15s</b><span>each face stays<br>on screen</span></div>
+    <div class="stat"><b>0</b><span>clouds, accounts<br>or subscriptions</span></div>
+  </div>
+</section>
+
+<div class="meander" aria-hidden="true"></div>
+
+<!-- ============================================================ WHAT IT DOES -->
+<section id="what" class="pad halftone" style="overflow:hidden">
+  <img class="art what-david" data-speed="-0.12" src="/assets/img/david.webp" alt="" aria-hidden="true" width="700" height="1299">
+  <span class="coord" style="left:24px;top:24px">[ 01 / FEATURES ]</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num reveal fade"><b>01</b> What it does</div>
+        <h2 class="h2 reveal l">A desk buddy<br>with <span class="block-lime">feelings.</span></h2><span class="draw-line"></span>
+      </div>
+      <p class="sec-note reveal r">Everything runs between your phone and the bot. Nothing leaves the room.<br><br><span class="ticket"><span>Ref</span><span>HB-2.1.0 / BLE</span></span></p>
+    </div>
+    <div class="cards" data-stagger="0.09">
+      <article class="card"><span class="num">01</span>
+        <div class="oled"><img src="/assets/faces/effect_sakura.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Mood presets</h3>
+        <p>Chill, Hyper, Sleepy, Love. One tap swaps the whole playlist and the bot shuffles through it.</p>
+      </article>
+      <article class="card lime"><span class="num">02</span>
+        <div class="oled"><img src="/assets/faces/eye_wink.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Draw your own face</h3>
+        <p>128×64 pixel editor with mirror mode, onion skin and up to 60 frames. Hit send, it's on the bot.</p>
+      </article>
+      <article class="card blue"><span class="num">03</span>
+        <div class="oled"><img src="/assets/faces/theme_dragon.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Any GIF → bot</h3>
+        <p>Pick a GIF on your phone, preview it as real OLED pixels, choose fit and dither, done.</p>
+      </article>
+      <article class="card violet"><span class="num">04</span>
+        <div class="oled"><img src="/assets/faces/emotion_love.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Poke it</h3>
+        <p>Send your name and a little message — emoji included. It pops up on the bot's face.</p>
+      </article>
+      <article class="card ink"><span class="num">05</span>
+        <div class="oled"><img src="/assets/faces/theme_bee.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Live mirror</h3>
+        <p>See exactly what's on its screen right now, from the other side of the room.</p>
+      </article>
+      <article class="card"><span class="num">06</span>
+        <div class="oled"><img src="/assets/faces/emotion_angry.gif" alt="" loading="lazy"></div>
+        <h3 class="h3">Paired &amp; private</h3>
+        <p>First time, you type a 4-digit code from its face. After that only your phones can control it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FACES -->
+<section id="faces" class="pad dark">
+  <span class="coord" style="left:24px;top:24px">[ 02 / FACES ]</span>
+  <span class="reg" style="right:40px;top:40px"></span>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num reveal fade"><b>02</b> The faces</div>
+        <h2 class="h2 reveal l">It has moods.<br><span class="glitch" data-text="So real." style="color:var(--lime)">So real.</span></h2><span class="draw-line"></span>
+      </div>
+      <p class="sec-note" style="color:#b5b5b0">Real animations, played straight from the bot's own files. Each one loops for at least 8 seconds.</p>
+    </div>
+    <div class="faces-wrap framed lime-c reveal fade">
+      <span class="sticker" style="left:-10px;top:-26px">no cap</span>
+      <span class="sticker" style="right:-6px;bottom:-24px;background:var(--violet-l);transform:rotate(5deg)">12 of them on board rn</span>
+      <div class="faces" data-stagger="0.05">
+        <figure class="face"><img src="/assets/faces/emotion_uwu.gif" alt="uwu face" loading="lazy"><figcaption><b>UWU</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/action_yawn.gif" alt="yawn" loading="lazy"><figcaption><b>YAWN</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/eye_wink.gif" alt="wink" loading="lazy"><figcaption><b>WINK</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/emotion_love.gif" alt="love" loading="lazy"><figcaption><b>LOVE</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/emotion_angry.gif" alt="angry" loading="lazy"><figcaption><b>ANGRY</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/action_sleepy.gif" alt="sleepy" loading="lazy"><figcaption><b>SLEEPY</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/emotion_dizzy.gif" alt="dizzy" loading="lazy"><figcaption><b>DIZZY</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/emotion_devil.gif" alt="devil" loading="lazy"><figcaption><b>DEVIL</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/eye_squint.gif" alt="squint" loading="lazy"><figcaption><b>SQUINT</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/action_pingpong.gif" alt="ping pong" loading="lazy"><figcaption><b>PING PONG</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/emotion_frustrated.gif" alt="frustrated" loading="lazy"><figcaption><b>UGH</b><span>.qgif</span></figcaption></figure>
+        <figure class="face"><img src="/assets/faces/eye_look_left.gif" alt="look left" loading="lazy"><figcaption><b>SIDE EYE</b><span>.qgif</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker"></div>
+<div class="meander ink" aria-hidden="true"></div>
+
+<!-- ============================================================ MANIFESTO -->
+<section class="pad dark manifesto">
+  <div class="manifesto-art" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kicker" style="color:var(--lime)"><span data-type="THE MANIFESTO // I · II · III">THE MANIFESTO // I · II · III</span></div>
+    <h2 class="h1" style="margin:20px 0 26px" data-stagger="0.14"><span class="reveal l" style="display:block">No cloud.</span><span class="l" style="display:block">No account.</span><em class="l" style="display:block">No nonsense.</em></h2>
+    <p class="reveal fade">Your phone talks to HyperBot over Bluetooth. That's the whole architecture. Nobody else's server, no login, no "please update to premium". You flash it from your browser, pair it once, and it's yours.</p>
+    <div class="btn-row" style="margin-top:30px">
+      <span class="label-box inv" style="border-color:var(--lime)">△ Brutalism</span>
+      <span class="label-box inv" style="border-color:var(--lime)">Fresh design</span>
+      <span class="label-box inv" style="border-color:var(--lime)">Open remix</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ THE APP -->
+<section id="app" class="pad grid-bg">
+  <span class="coord" style="left:24px;top:24px">[ 03 / APP ]</span>
+  <div class="wrap app-grid">
+    <div class="reveal l">
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen">
+          <div class="ph-head"><b>HyperBot</b><small>DESK ROBOT<br>TINY SCREEN<br>BIG MOOD</small><i></i></div>
+          <div class="ph-ribbon">HYPERBOT ✶ HYPERBOT ✶ HYPERBOT ✶ HYPERBOT</div>
+          <div class="ph-body">
+            <div class="ph-hero">Your<br><span>bot</span></div>
+            <div class="ph-name">HYPERBOT-1A2B</div>
+            <div class="ph-tiles">
+              <div class="ph-tile ink"><small>FREE SPACE ↗</small><b>687 KB</b></div>
+              <div class="ph-tile lime"><small>ON THE BOT ↗</small><b>5 GIFS</b></div>
+            </div>
+            <div class="ph-oled"><img src="/assets/faces/action_yawn.gif" alt=""></div>
+          </div>
+          <div class="ph-nav"><span class="on">◉
+BOT</span><span>▦
+PLAYLIST</span><span>✎
+DRAW</span><span>⇄
+CONVERT</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-num reveal fade"><b>03</b> The app</div>
+      <h2 class="h2 reveal r">Your bot's<br><span class="block-blue">remote.</span></h2>
+      <div class="tabs-list frame-in">
+        <div class="tab-row"><b>◉<br>BOT</b><div><strong>Say hi</strong><p>Link up, check free space, watch the live mirror, poke it with a message.</p></div></div>
+        <div class="tab-row"><b>▦<br>PLAYLIST</b><div><strong>Pick a mood</strong><p>Mood presets, 1–8 GIF playlists, how long each face stays (5–15 s) and speed.</p></div></div>
+        <div class="tab-row"><b>✎<br>DRAW</b><div><strong>Make a face</strong><p>Pixel editor with pen, fill, mirror, onion skin and frame timeline.</p></div></div>
+        <div class="tab-row"><b>⇄<br>CONVERT</b><div><strong>Any GIF</strong><p>Turn a GIF from your phone into a 1-bit animation with a real OLED preview.</p></div></div>
+      </div>
+      <div class="dl-card reveal r">
+        <div>
+          <div class="h3">HyperBot for Android</div>
+          <div class="meta">v2.1.0 · 0.6 MB · Android 8+ · Bluetooth LE</div>
+        </div>
+        <a class="btn ink" href="/downloads/HyperBot-2.1.0.apk" download>↓ Download APK</a>
+      </div>
+      <p class="mono" style="font-size:12px;margin-top:14px">ANDROID WILL ASK TO ALLOW "INSTALL UNKNOWN APPS" — THAT'S NORMAL FOR APPS OUTSIDE THE PLAY STORE. IPHONE: NOT YET.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon ink tilt"><div class="ribbon-track">
+  <span>4 wires</span><span>1 click</span><span>1 code</span><span>Your bot</span>
+</div></div>
+
+<!-- ============================================================ HOW -->
+<section id="how" class="pad">
+  <span class="coord" style="left:24px;top:24px">[ 04 / HOW ]</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num reveal fade"><b>04</b> How it works</div>
+        <h2 class="h2 reveal l">Wire. Flash.<br>Pair. <span class="block-lime">Done.</span></h2>
+      </div>
+      <a class="btn blue" href="/build.html">Open the build guide →</a>
+    </div>
+    <div class="how-art">
+      <div class="ruins reveal wipe-up" aria-hidden="true">
+        <img class="art colo" data-speed="0.06" src="/assets/img/ruin_colosseum.webp" alt="" width="420" height="719">
+        <img class="art arch" src="/assets/img/ruin_arch.webp" alt="" width="547" height="981">
+      </div>
+      <div class="reveal r">
+        <span class="roman">I · WIRE &nbsp;&nbsp; II · FLASH &nbsp;&nbsp; III · PAIR</span>
+        <p class="lead" style="margin-top:14px">Every empire started with a few stones. Yours starts with four wires, one click and a four-digit code — then the bot carries the rest.</p>
+        <span class="ticket" style="margin-top:10px"><span>Time</span><span>≈ 15 min</span></span>
+      </div>
+    </div>
+    <div class="steps" data-stagger="0.12">
+      <div class="step"><span class="big">01</span><h3 class="h3">Wire it</h3><p>An ESP32-C3 board and a tiny OLED. Four wires: power, ground and two data lines. No soldering needed with jumper wires.</p></div>
+      <div class="step"><span class="big">02</span><h3 class="h3">Flash it</h3><p>Plug it into your laptop, open the build page in Chrome or Edge and click Install. No coding tools.</p></div>
+      <div class="step"><span class="big">03</span><h3 class="h3">Pair it</h3><p>The bot shows a 4-digit code on its face. Type it in the app. It remembers your phone forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ANGEL CTA -->
+<section class="pad angel halftone">
+  <span class="coord" style="left:24px;top:24px">[ 05 / GUARDIAN ]</span>
+  <span class="reg" style="left:50%;bottom:30px"></span>
+  <span class="halo-ring" aria-hidden="true"></span>
+  <div class="wrap angel-grid">
+    <div class="angel-side reveal l">
+      <div class="kicker">Guardian mode</div>
+      <span class="roman" style="display:block;margin-top:10px">XII · VI · XX</span>
+      <h2 class="h2" style="margin:18px 0 18px">Give your<br>desk a<br><span class="block-blue">guardian.</span></h2>
+    </div>
+    <div class="angel-wrap"><img class="angel-img reveal wipe-up" src="/assets/img/angel.webp" alt="Engraved angel with a radiant halo" loading="lazy" decoding="async" width="760" height="1135"></div>
+    <div class="angel-side reveal r">
+      <p>It watches over your desk, gets sleepy when you're gone and lights up when someone pokes it. Honestly the most supportive coworker you'll ever have.</p>
+      <div class="btn-row">
+        <a class="btn lime" href="/downloads/HyperBot-2.1.0.apk" download>↓ Get the app</a>
+        <a class="btn" href="/build.html">Build one →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<div class="meander" aria-hidden="true"></div>
+<footer class="footer">
+  <div class="footer-strip"><div class="wrap"><span>Tiny bot</span><i></i><span>Big mood</span><i></i><span>No cloud</span><i></i><span>→</span></div></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>HyperBot</h4>
+        <p>A palm-sized ESP32-C3 desk robot with a 128×64 OLED face, an Android remote and zero cloud.</p>
+      </div>
+      <div>
+        <h4>Go</h4>
+        <a href="/build.html">Build guide</a>
+        <a href="/build.html#install">Install firmware</a>
+        <a href="/downloads/HyperBot-2.1.0.apk" download>Download the app</a>
+        <a href="/build.html#help">Troubleshooting</a>
+      </div>
+      <div>
+        <h4>Credits</h4>
+        <a href="https://github.com/SeanChangX/QBIT" rel="noopener">Based on QBIT by SeanChangX</a>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">CC BY-NC-SA 4.0</a>
+        <a href="/assets/fonts/OFL-Anton.txt">Fonts: SIL Open Font License</a>
+      </div>
+    </div>
+    <div class="giant reveal wipe">HYPER<span>BOT</span></div>
+    <div class="credit">HyperBot is a remix of <a style="display:inline;color:var(--lime)" href="https://github.com/SeanChangX/QBIT">QBIT</a> by SeanChangX, licensed CC BY-NC-SA 4.0 — non-commercial, share-alike. Changes: new Bluetooth upload protocol, pairing, pokes, live mirror, display time and speed, pixel editor, GIF converter, mood presets and a redesigned app. Fonts: Anton, Syne, Space Grotesk, Space Mono (SIL OFL). © <span data-year></span> HyperBot.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

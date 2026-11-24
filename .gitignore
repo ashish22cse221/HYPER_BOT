@@ -1,0 +1,23 @@
+# Android
+app/local.properties
+app/.gradle/
+app/build/
+app/app/build/
+app/.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# PlatformIO
+firmware/.pio/
+firmware/.vscode/
+
+# Netlify
+web/.netlify/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
