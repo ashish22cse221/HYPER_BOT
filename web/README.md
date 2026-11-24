@@ -14,7 +14,7 @@ Static site, no build step. Two pages:
 ## Updating firmware / app
 - Replace the files in `firmware/` (bootloader.bin, partitions.bin, firmware.bin, littlefs.bin) and bump
   `version` in both manifests.
-- Replace `downloads/HyperBot-2.1.0.apk` (rename + update the links if the version changes).
+- Replace `downloads/HyperBot-2.2.0.apk` (rename + update the links if the version changes).
 
 ## Notes
 - The installer uses ESP Web Tools (Web Serial): Chrome / Edge on desktop, over https only.
