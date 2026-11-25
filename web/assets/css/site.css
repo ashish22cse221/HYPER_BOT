@@ -316,7 +316,7 @@ section { position: relative; }
 .footer-strip { background: var(--blue); border-block: 3px solid var(--ink); display: flex; align-items: center; gap: 18px; padding: 18px 0; font: 700 14px var(--mono); text-transform: uppercase; overflow: hidden; }
 .footer-strip .wrap { display: flex; align-items: center; gap: 18px; }
 .footer-strip i { flex: 1; height: 2px; background: var(--white); min-width: 30px; }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding: 56px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; padding: 56px 0 30px; }
 .footer h4 { font: 700 12px var(--mono); text-transform: uppercase; color: var(--lime); margin: 0 0 14px; }
 .footer a { text-decoration: none; display: block; padding: 3px 0; color: #e6e6e1; }
 .footer a:hover { color: var(--lime); }
